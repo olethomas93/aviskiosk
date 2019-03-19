@@ -123,7 +123,7 @@ public class ValidInput {
             check = true;
         }
         else{
-            System.out.println("Invalid Input"+"Min: "+ min+ "Max: "+ max);
+            System.out.println("Invalid Input"+"Min: "+" "+ min+ "\nMax: "+" "+ max);
         }
         }
 

@@ -53,6 +53,7 @@ public class ApplicationUI
      
         System.out.println("\n**** Application v1.0 ****\n");
         register = new LiteratureRegister(); 
+        register.addDailyLiterature();
 
     }
 

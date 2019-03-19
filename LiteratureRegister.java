@@ -187,12 +187,19 @@ public class LiteratureRegister
     /*  * A method who creates objects of the class Newspaper
     * this method is just for testing.
     */
-    public void addDailyPapers()
+    
+    
+    public void addDailyLiterature()
     {
         literatureCollection.add(new Newspaper("Stjørdalens blad", 250, 20, 15, 2019, 2, 22));
         literatureCollection.add(new Newspaper("Folkebladet", 220, 20, 15, 2019, 2, 22));  
         literatureCollection.add(new Newspaper("Inerøyingen", 52, 30, 5, 2019, 2, 22));  
         literatureCollection.add(new Newspaper("Nordlys", 364, 20, 15, 2019, 2, 22));
+        literatureCollection.add(new Book("FORLAG", "SNOMANNEN", "JO NESBO", "KRIM", 12, 2, 2019,2,2));
+        literatureCollection.add(new Book("FORLAG", "PAN", "KNUT HAMSUND", "KRIM", 12, 2, 2019,2,2));
+        literatureCollection.add(new Book("FORLAG", "DAVINCI CODE", "DARREN BROWN", "KRIM", 12, 2, 2019,2,2));
+        literatureCollection.add(new Book("FORLAG", "BIBELEN", "JESUS", "fantasy", 12, 2, 1000,2,2));
+        
 
     }
 
