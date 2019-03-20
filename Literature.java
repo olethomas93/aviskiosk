@@ -23,17 +23,18 @@ public class Literature {
     private double retailPrice;
 
     private int numberInStock;
+    private int year;
     
     
     
 
 
-public Literature(String publisher,long purchasePrice,int numberRecieved,int year,int month, int dayOfMonth)
+public Literature(String publisher,long purchasePrice,int numberRecieved,int year)
 {
     setPublisher(publisher);
     setRetailPrice(purchasePrice);
     setNumberInStock(numberRecieved);
-    setDateIssued(year, month, dayOfMonth);
+    setYearIssued(year);
 
 }
 /**
@@ -70,29 +71,7 @@ public Literature(String publisher,long purchasePrice,int numberRecieved,int yea
         return numberInStock;
     }
  
-  /**
-     * Returns the date the newspaper was issued
-     * @return the date
-     */
-    public LocalDate getDateIssued()
-    {
-        return this.date;
-    }
-
-   
-    
-
-    /**
-     * Returns date-object in String format.
-     * @return currentDate the date in String format
-     */
-
-    public String getDate()
-    {
-        String currentDate = this.date.toString();
-
-        return currentDate;
-    }
+  
     
     /**
      * set title variable and check if the string is empty
@@ -139,36 +118,7 @@ public Literature(String publisher,long purchasePrice,int numberRecieved,int yea
 
     
     
-    public boolean setDateIssued(int year, int month, int dayOfMonth)
-    {
-
-      try
-        {
-          this.date = LocalDate.of(year, month, dayOfMonth);
-        } 
-        catch (DateTimeException e ) 
-        {
-
-           System.out.println("Exception thrown  :" + e); 
-        }  
-
-           
-
-      boolean valid = true; 
-        try{
-          this.date = LocalDate.of(year, month, dayOfMonth);
-        } catch (DateTimeException e ) {
-           valid = false;
-           System.out.println("Exception thrown  :" + e); 
-        }  
-
-            
-
-           return valid;
-
-     
-
-    }
+    
  /**
      * Change the stock.
      * @param numberToBuy
@@ -187,6 +137,14 @@ public Literature(String publisher,long purchasePrice,int numberRecieved,int yea
         
         numberInStock =+ numberToAdd;
         
+    }
+
+    private void setYearIssued(int year) {
+        this.year = year;
+    }
+    
+    public int getYearIssued(){
+        return this.year;
     }
     
 }

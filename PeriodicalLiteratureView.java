@@ -11,7 +11,7 @@ import java.util.Iterator;
  *
  * @author norby
  */
-public class NewspaperView extends ApplicationUI{
+public class PeriodicalLiteratureView extends ApplicationUI{
     
     private ValidInput validInput  ;
     private LiteratureRegister register;
@@ -34,7 +34,7 @@ public class NewspaperView extends ApplicationUI{
     };
     
     
-   public NewspaperView (LiteratureRegister myRegister){
+   public PeriodicalLiteratureView (LiteratureRegister myRegister){
          super();
        register = myRegister;
       
@@ -43,7 +43,7 @@ public class NewspaperView extends ApplicationUI{
     
     
     
-    public Literature createNewspaper(){
+    public Literature createPeriodicalLiterature(){
        
        
        String publisher = "no title added";
@@ -89,7 +89,7 @@ public class NewspaperView extends ApplicationUI{
     
     
     
-    void findNewspaperByName()
+    void findPeriodicalLiteratureByName()
     {
         
 
@@ -125,7 +125,7 @@ public class NewspaperView extends ApplicationUI{
         
         if(menuSelection == 1){
             
-            findNewspaperByName();
+            findPeriodicalLiteratureByName();
             
         }
         

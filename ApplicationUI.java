@@ -194,9 +194,9 @@ public class ApplicationUI
         
      if(menuSelection== 1){
          
-         NewspaperView view = new NewspaperView(register);
+         PeriodicalLiteratureView view = new PeriodicalLiteratureView(register);
          
-         Literature paper = view.createNewspaper();
+         Literature paper = view.createPeriodicalLiterature();
          
          register.addLiterature(paper);
      }
@@ -221,7 +221,7 @@ public class ApplicationUI
      int menuSelection = showMenu(subMenuItems2);
      
      if(menuSelection ==1){
-         NewspaperView view = new NewspaperView(register);
+         PeriodicalLiteratureView view = new PeriodicalLiteratureView(register);
          view.getSearchOptions();
        }
      if(menuSelection == 2){
@@ -267,8 +267,8 @@ public class ApplicationUI
         details.append(literature.getPublisher());
         details.append("\n");
         
-        if(literature instanceof Book ){
-            Book b = (Book)literature;
+        if(literature instanceof BookStandAlone ){
+            BookStandAlone b = (BookStandAlone)literature;
             details.append("Author: ");
             details.append(b.getAuthor());
             details.append("\n");
@@ -289,12 +289,17 @@ public class ApplicationUI
         details.append("Number in stock: ");
         details.append(literature.getNumberInStock());
         details.append("\n");
-        details.append("Date Issued: ");
-        details.append(literature.getDate());
+        details.append("Year Issued: ");
+        details.append(literature.getYearIssued());
         details.append("\n");
-        details.append("_________________________");
-            
-            
+        
+        if(literature instanceof PeriodicalLiterature){
+            PeriodicalLiterature p = (PeriodicalLiterature)literature;
+            details.append("Date Issued: ");
+            details.append(p.getDateIssued());
+            details.append("\n");
+        }    
+         details.append("_________________________");   
         
     
     return details;

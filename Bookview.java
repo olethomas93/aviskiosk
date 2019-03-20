@@ -86,16 +86,15 @@ public class Bookview extends ApplicationUI{
         
 
         
-             book = new Book( 
+             book = new BookStandAlone( 
                      publisher
                      ,title
                      ,author
                      ,genre
                      ,purchasePrice
                      ,numberReceived
-                     ,year 
-                     ,month
-                     ,dayOfMonth);
+                     ,year  );
+                    
             
             System.out.print("Book succesfully added");
         

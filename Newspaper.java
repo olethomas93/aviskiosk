@@ -1,5 +1,7 @@
 package gruppeinnlevering;
 
+import java.time.LocalDate;
+
 /**
  * Class name: Newspaper
  * Represents a newspaper
@@ -12,7 +14,7 @@ package gruppeinnlevering;
 public class Newspaper extends PeriodicalLiterature
 {
     
-    
+     
      
 
    
@@ -41,8 +43,7 @@ public class Newspaper extends PeriodicalLiterature
         
         super(publisher,yearlyReleases,purchasePrice,numberRecieved,year,month,dayOfMonth);
         
-        
-
+       
         
         
       
@@ -50,8 +51,6 @@ public class Newspaper extends PeriodicalLiterature
     }
     
     
-
-
  
 
     

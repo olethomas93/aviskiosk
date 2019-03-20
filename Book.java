@@ -11,10 +11,10 @@ package gruppeinnlevering;
  */
 public class Book extends Literature{
     
-    private String genre;
+     private String genre;
     private String author;
     private String title;
-    private String series;
+    
     
     
     public Book(String publisher
@@ -23,19 +23,18 @@ public class Book extends Literature{
             ,String genre
             ,long purchasePrice
             ,int numberRecieved
-            ,int year 
-            ,int month
-            , int dayOfMonth){
+            ,int year){
+            
+    
         
-        super(publisher,purchasePrice,numberRecieved,year,month,dayOfMonth);
-        
-        setTitle(title);        
-        setGenre(genre);
-        setAuthor(author);
-        setSeries(series);
+    super( publisher, purchasePrice, numberRecieved, year);    
+    setTitle(title);        
+    setGenre(genre);
+    setAuthor(author);
         
         
     }
+    
 
     private void setAuthor(String author) {
         
@@ -57,10 +56,7 @@ public class Book extends Literature{
         
     }
 
-    private void setSeries(String series) {
-        
-        this.series = series;
-    }
+    
 
     
     
@@ -75,17 +71,10 @@ public class Book extends Literature{
     public String getTitle() {
         return this.title;
     }
-
-    public String getSeries() {
-        return this.series;
-    }
-
     
+    
+
    
-
-    
-    
-    
-    
+        
     
 }

@@ -118,8 +118,8 @@ public class LiteratureRegister
         ArrayList<Literature> searchResult = new ArrayList<>();
         for (Literature literature : this.literatureCollection) {
         
-            if(literature instanceof Book){
-                Book book = (Book)literature;
+            if(literature instanceof BookStandAlone){
+                BookStandAlone book = (BookStandAlone)literature;
                 
                 if(book.getAuthor().contains(author.toUpperCase())){
                     
@@ -141,8 +141,8 @@ public class LiteratureRegister
         
         for (Literature literature : this.literatureCollection) {
         
-            if(literature instanceof Book){
-                Book book = (Book)literature;
+            if(literature instanceof BookStandAlone){
+                BookStandAlone book = (BookStandAlone)literature;
                 
               
                 if(book.getTitle().contains(title.toUpperCase())){
@@ -164,8 +164,8 @@ public class LiteratureRegister
                 
            
             
-            if(literature instanceof Book){
-                Book book = (Book)literature;
+            if(literature instanceof BookStandAlone){
+                BookStandAlone book = (BookStandAlone)literature;
                 
               
                 if(book.getTitle().contains(title.toUpperCase())){
@@ -229,11 +229,11 @@ public class LiteratureRegister
         literatureCollection.add(new Newspaper("Folkebladet", 220, 20, 15, 2019, 2, 22));  
         literatureCollection.add(new Newspaper("Inerøyingen", 52, 30, 5, 2019, 2, 22));  
         literatureCollection.add(new Newspaper("Nordlys", 364, 20, 15, 2019, 2, 22));
-        literatureCollection.add(new Book("FORLAG", "SNOMANNEN", "JO NESBO", "KRIM", 12, 2, 2019,2,2));
-        literatureCollection.add(new Book("FORLAG", "PAN", "KNUT HAMSUND", "KRIM", 12, 2, 2019,2,2));
-        literatureCollection.add(new Book("FORLAG", "DAVINCI CODE", "DARREN BROWN", "KRIM", 12, 2, 2019,2,2));
-        literatureCollection.add(new Book("FORLAG", "BIBELEN", "JESUS", "fantasy", 12, 2, 1000,2,2));
-        literatureCollection.add(new Book("FORLAG", "Hodejegerne", "JO NESBO", "KRIM", 12, 2, 2019,2,2));
+        literatureCollection.add(new BookStandAlone("FORLAG", "SNOMANNEN", "JO NESBO", "KRIM", 12, 2, 2019));
+        literatureCollection.add(new BookStandAlone("FORLAG", "PAN", "KNUT HAMSUND", "KRIM", 12, 2, 2019));
+        literatureCollection.add(new BookStandAlone("FORLAG", "DAVINCI CODE", "DARREN BROWN", "KRIM", 12, 2, 2019));
+        literatureCollection.add(new BookStandAlone("FORLAG", "BIBELEN", "JESUS", "fantasy", 12, 2, 1000));
+        literatureCollection.add(new BookStandAlone("FORLAG", "Hodejegerne", "JO NESBO", "KRIM", 12, 2, 2019));
 
     }
 
