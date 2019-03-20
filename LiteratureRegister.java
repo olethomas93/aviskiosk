@@ -70,6 +70,8 @@ public class LiteratureRegister
         
     }
     }
+    
+  
 
     /**
      * Returns the iterator of literature collection
@@ -154,6 +156,38 @@ public class LiteratureRegister
         return searchResult.iterator();
     }
     
+    public ArrayList<Literature> getListTitle(String title){
+        
+         ArrayList<Literature> searchResult = new ArrayList<>();
+       
+        for (Literature literature : this.literatureCollection) {
+                
+           
+            
+            if(literature instanceof Book){
+                Book book = (Book)literature;
+                
+              
+                if(book.getTitle().contains(title.toUpperCase())){
+                    
+                     searchResult.add(literature);
+                    
+                }
+                
+               
+            }
+        }  
+        return searchResult;
+        
+        
+    }
+    
+    public ArrayList<Literature> getList(){
+        
+        return literatureCollection;
+        
+    }
+    
     
 
     /**
@@ -199,7 +233,7 @@ public class LiteratureRegister
         literatureCollection.add(new Book("FORLAG", "PAN", "KNUT HAMSUND", "KRIM", 12, 2, 2019,2,2));
         literatureCollection.add(new Book("FORLAG", "DAVINCI CODE", "DARREN BROWN", "KRIM", 12, 2, 2019,2,2));
         literatureCollection.add(new Book("FORLAG", "BIBELEN", "JESUS", "fantasy", 12, 2, 1000,2,2));
-        
+        literatureCollection.add(new Book("FORLAG", "Hodejegerne", "JO NESBO", "KRIM", 12, 2, 2019,2,2));
 
     }
 

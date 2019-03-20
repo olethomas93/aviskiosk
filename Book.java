@@ -73,11 +73,11 @@ public class Book extends Literature{
     }
 
     public String getTitle() {
-        return title;
+        return this.title;
     }
 
     public String getSeries() {
-        return series;
+        return this.series;
     }
 
     

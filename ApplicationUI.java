@@ -15,7 +15,7 @@ import java.util.Iterator;
  */
 public class ApplicationUI 
 {
-    private LocalDate date;
+   
     protected LiteratureRegister register;
     
 
@@ -40,6 +40,13 @@ public class ApplicationUI
     {
       "1. Find Newspaper ",
       "2. Find Book"
+      
+    };
+    
+    private String[] subMenuItemShop =
+    {
+      "1. List everything in shop",
+      "2. Find literature by title",
       
     };
 
@@ -227,7 +234,18 @@ public class ApplicationUI
 
        
     
-
+ private void shopForLiterature() {
+        
+     int menuSelection = showMenu(subMenuItemShop);
+     
+     Shop shop = new Shop(register);
+     
+     if(menuSelection ==1){
+        
+        shop.listAll();
+        
+    }
+ }
    
     
     
@@ -243,6 +261,8 @@ public class ApplicationUI
     
         StringBuilder details = new StringBuilder();
         
+        details.append("_________________________");
+        details.append("\n");
         details.append("Publisher: ");
         details.append(literature.getPublisher());
         details.append("\n");
@@ -272,6 +292,7 @@ public class ApplicationUI
         details.append("Date Issued: ");
         details.append(literature.getDate());
         details.append("\n");
+        details.append("_________________________");
             
             
         
@@ -279,9 +300,8 @@ public class ApplicationUI
     return details;
     }
 
-    private void shopForLiterature() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
+   
 
     private void deleteLiterature() {
         
