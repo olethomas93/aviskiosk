@@ -1,8 +1,5 @@
 package gruppeinnlevering;
 
-import gruppeinnlevering.Literature;
-import java.time.LocalDate;
-
 /**
  * Class name: Newspaper
  * Represents a newspaper
@@ -12,11 +9,11 @@ import java.time.LocalDate;
  * @author gruppeprosjekt, Gruppe 33
  * @version 1.0
  */
-public class Newspaper extends Literature
+public class Newspaper extends PeriodicalLiterature
 {
     
-    private int yearlyReleases;
-     private LocalDate date;
+    
+     
 
    
 
@@ -42,7 +39,7 @@ public class Newspaper extends Literature
     int month, int dayOfMonth)
     {
         
-        super(publisher,purchasePrice,numberRecieved,year,month,dayOfMonth);
+        super(publisher,yearlyReleases,purchasePrice,numberRecieved,year,month,dayOfMonth);
         
         
 
@@ -59,22 +56,5 @@ public class Newspaper extends Literature
 
     
         
-    public void setYearlyReleases(int yearlyReleases)
-    {
-        this.yearlyReleases = yearlyReleases;
-    }
-    
-    
-    
-    public int getYearlyReleases(){
-        
-        return this.yearlyReleases;
-    }
-            
-    
-    
-    
-    
-    
     
 }
