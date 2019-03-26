@@ -18,7 +18,7 @@ public class BookSeries extends Book {
             ,String title
             ,String author
             ,String genre
-            ,String Series
+            ,String series
             ,long purchasePrice
             ,int numberRecieved
             ,int year 
@@ -27,6 +27,7 @@ public class BookSeries extends Book {
         
         
         super(publisher,title,author,genre,purchasePrice,numberRecieved,year);
+        
         setSeries(series);
     }
     

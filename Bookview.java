@@ -5,7 +5,6 @@
  */
 package gruppeinnlevering;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 
 /**
@@ -14,7 +13,7 @@ import java.util.Iterator;
  */
 public class Bookview extends ApplicationUI{
     
-    private ValidInput validInput  ;
+    private Validator validInput  ;
     private LiteratureRegister register;
     
     private String[] view = 
@@ -42,7 +41,7 @@ public class Bookview extends ApplicationUI{
     public Bookview(LiteratureRegister myRegister){
         super();
         register = myRegister;
-       validInput = new ValidInput();
+       validInput = new Validator();
    }
     
     
@@ -55,7 +54,11 @@ public class Bookview extends ApplicationUI{
          
     
     
-    
+    /**
+     * creates an instance of book. the user get the choice of adding it
+     * ¨to a series.
+     * @return Literature
+     */
     
     
     public Literature createBook(){
@@ -90,10 +93,10 @@ public class Bookview extends ApplicationUI{
            System.out.println("\nSeries in store: \n");
            
            for(String series :  register.getSeriesList() ){
-               System.out.println(series);
+               System.out.println("|"+series+"|\n");
            }
            
-           System.out.println("please type in name of Series\n");
+           System.out.println("\nplease type in name of Series\n");
            
            String series = validInput.checkString();
            
@@ -121,7 +124,7 @@ public class Bookview extends ApplicationUI{
                      ,genre
                      ,purchasePrice
                      ,numberReceived
-                     ,year  );
+                     ,year);
                     
             
             System.out.print("\nBook succesfully added\n");
@@ -133,7 +136,13 @@ public class Bookview extends ApplicationUI{
         return book;
         }
     
-    void findBookByAuthor()
+    
+    /**
+     * user can find book by searching for author
+     */
+    
+    
+     void findBookByAuthor()
     {
         
 
@@ -153,7 +162,13 @@ public class Bookview extends ApplicationUI{
             System.out.println(getDetails(search.next()));   
 
         }
+        
     }
+    
+    /**
+     * User vcan find Book by searching for title
+     */
+    
     void findBookByTitle()
     {
         
@@ -174,6 +189,7 @@ public class Bookview extends ApplicationUI{
             System.out.println(getDetails(search.next()));   
 
         }
+       
     }
 
     

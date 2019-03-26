@@ -13,7 +13,7 @@ import java.util.Scanner;
  *
  * @author norby
  */
-public class ValidInput {
+public class Validator {
     
    
     
@@ -21,7 +21,7 @@ public class ValidInput {
     
     
     
-    public ValidInput(){
+    public Validator(){
 
 }
 

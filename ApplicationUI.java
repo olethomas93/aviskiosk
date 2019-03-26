@@ -94,7 +94,7 @@ public class ApplicationUI
                 switch (menuSelection) 
                 {
                     case 1:
-                    this.listAllProducts();
+                    this.listAllLiterature();
                     break;
 
                     case 2:
@@ -170,9 +170,9 @@ public class ApplicationUI
    
    
     /**
-     * Lists all newspapers in the collection of newspapers
+     * Lists all Literature in the collection of Literature
      */
-    protected void listAllProducts()
+    protected void listAllLiterature()
     {
        
 
@@ -256,12 +256,15 @@ public class ApplicationUI
      
      if(menuSelection ==1){
         
-        listAllWithIndex();
-        AddToCart();
+        ArrayList <Literature> list =  register.getList();
+         
+         listAllWithIndex(list);
+        AddToCart(list);
         
     }
      if(menuSelection == 2){
          
+         findLiteratureByTitle();
          
      }
      if(menuSelection == 3){
@@ -345,15 +348,16 @@ public class ApplicationUI
     
     /**
      * Lists all contents of literatureRegister with index number
+     * @param list
      */
     
-    public void listAllWithIndex(){
+    public void listAllWithIndex(ArrayList<Literature> list){
     
-     ArrayList<Literature> list = register.getList();
+       
      
      for(int i = 0; i< list.size();i++ ){
          
-         System.out.println("\nindex number: "+i+"\n");
+         System.out.println("\nindex number: "+(i)+"\n");
          
          System.out.println(getDetails(list.get(i)));
      }  
@@ -367,16 +371,16 @@ public class ApplicationUI
      * adds items to shopping cart
      */
     
-   public void AddToCart(){
-     ArrayList<Literature> list = register.getList();
-     ValidInput validInput = new ValidInput();
+   public void AddToCart(ArrayList<Literature> list){
+             
+     Validator validInput = new Validator();
      System.out.println("\nPlease enter the index number of what you want to add to shopping cart\n");
       
-      int choise = validInput.checkInt(1, list.size());
+      int choise = validInput.checkInt(0, list.size());
       if(list.get(choise).getNumberInStock() == 0){
-          
+         
           System.out.println("\nOUT OF STOCK\n");
-          AddToCart();
+           shopForLiterature();
       }
       System.out.println("\nSure you want to add: \n");
       System.out.println(getDetails(list.get(choise)));
@@ -426,11 +430,11 @@ public void ShowShoppingCart(){
 
 
 /*
-takes user to checkout 
+ decreases stock of items in shopping cart and clears the shoppingcart
 */
 
 public void checkOut(){
-    ValidInput validInput = new ValidInput();
+    Validator validInput = new Validator();
     System.out.println("Items in shopping cart:\n");
     ShowShoppingCart();
     System.out.println("\n");
@@ -474,6 +478,23 @@ public void checkOut(){
         
         
     }
+
+    
+    
+    private void findLiteratureByTitle() {
+        
+        Validator validInput = new Validator();
+        
+        System.out.println("Please enter name of title \n");
+        String title = validInput.checkString();
+        
+        ArrayList<Literature> list = register.getListTitle(title);
+        
+        listAllWithIndex(list);
+        
+       AddToCart(list);
+        
+       }
 
    
     

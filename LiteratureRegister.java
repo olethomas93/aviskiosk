@@ -135,6 +135,14 @@ public class LiteratureRegister
     }
     
     
+    /**
+     * return an Iterator of literature with given title
+     * 
+     * @param title
+     * @return iterator 
+     */
+    
+    
     public Iterator<Literature> getIteratorTitle(String title){
         
         ArrayList<Literature> searchResult = new ArrayList<>();
@@ -156,6 +164,12 @@ public class LiteratureRegister
         return searchResult.iterator();
     }
     
+    /**
+     * returns a arraylist of literature with given title
+     * @param title
+     * @return ArrayList
+     */
+    
     public ArrayList<Literature> getListTitle(String title){
         
          ArrayList<Literature> searchResult = new ArrayList<>();
@@ -164,8 +178,8 @@ public class LiteratureRegister
                 
            
             
-            if(literature instanceof BookStandAlone){
-                BookStandAlone book = (BookStandAlone)literature;
+            if(literature instanceof Book){
+                Book book = (Book)literature;
                 
               
                 if(book.getTitle().contains(title.toUpperCase())){
@@ -182,6 +196,12 @@ public class LiteratureRegister
         
     }
     
+    
+    /**
+     * returns arraylist of collection of literature
+     * @return Arraylist 
+     */
+    
     public ArrayList<Literature> getList(){
         
         return literatureCollection;
@@ -189,7 +209,12 @@ public class LiteratureRegister
     }
     
    
-       
+       /**
+        * returns a Arraylist of Strings of all Series 
+        * in Literature Collection
+        *
+        * @return ArrayList 
+        */
        
        public ArrayList<String> getSeriesList(){
         
@@ -197,7 +222,7 @@ public class LiteratureRegister
          ArrayList<String> series = new ArrayList<String>(); 
         
         for (Literature literature : this.literatureCollection) {
-             int i = 0;
+             
             
              if(literature instanceof BookSeries){
                 BookSeries book = (BookSeries)literature;
@@ -205,7 +230,7 @@ public class LiteratureRegister
                 
                 series.add(book.getSeries());
                
-                i++;
+               
                
             }
         }  

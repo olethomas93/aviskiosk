@@ -13,7 +13,7 @@ import java.util.Iterator;
  */
 public class PeriodicalLiteratureView extends ApplicationUI{
     
-    private ValidInput validInput  ;
+    private Validator validInput  ;
     private LiteratureRegister register;
     
     private String[] view = 
@@ -45,7 +45,7 @@ public class PeriodicalLiteratureView extends ApplicationUI{
          super();
        register = myRegister;
       
-       validInput = new ValidInput();
+       validInput = new Validator();
    }
     
     

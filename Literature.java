@@ -16,6 +16,7 @@ import java.time.LocalDate;
 public class Literature {
     
     private String publisher;
+    
     private LocalDate date;
    
     private double purchasePrice;
@@ -23,6 +24,7 @@ public class Literature {
     private double retailPrice;
 
     private int numberInStock;
+    
     private int year;
     
     
