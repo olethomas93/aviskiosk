@@ -16,7 +16,7 @@ import java.time.LocalDate;
 public class Literature {
     
     private String publisher;
-     private LocalDate date;
+    private LocalDate date;
    
     private double purchasePrice;
 
@@ -127,7 +127,11 @@ public Literature(String publisher,long purchasePrice,int numberRecieved,int yea
     
     public void SellLiterature(int numberToBuy){
         
-        numberInStock =- numberToBuy;
+        numberInStock = numberInStock - numberToBuy;
+        
+        if(numberInStock < 0){
+            numberInStock = 0;
+        }
         
         
         

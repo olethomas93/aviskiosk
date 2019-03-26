@@ -188,6 +188,29 @@ public class LiteratureRegister
         
     }
     
+   
+       
+       
+       public ArrayList<String> getSeriesList(){
+        
+        
+         ArrayList<String> series = new ArrayList<String>(); 
+        
+        for (Literature literature : this.literatureCollection) {
+             int i = 0;
+            
+             if(literature instanceof BookSeries){
+                BookSeries book = (BookSeries)literature;
+                
+                
+                series.add(book.getSeries());
+               
+                i++;
+               
+            }
+        }  
+        return series;
+    } 
     
 
     /**

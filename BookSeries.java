@@ -22,11 +22,11 @@ public class BookSeries extends Book {
             ,long purchasePrice
             ,int numberRecieved
             ,int year 
-            ,int month
-            , int dayOfMonth){
+            
+            ){
         
         
-        super(title,author,genre,publisher,purchasePrice,numberRecieved,year);
+        super(publisher,title,author,genre,purchasePrice,numberRecieved,year);
         setSeries(series);
     }
     
@@ -37,6 +37,7 @@ public class BookSeries extends Book {
         this.series = series;
     }
     
+   
      public String getSeries() {
         return this.series;
     }

@@ -5,6 +5,7 @@
  */
 package gruppeinnlevering;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 
 /**
@@ -45,8 +46,13 @@ public class Bookview extends ApplicationUI{
    }
     
     
-    
-    
+  
+       
+       
+       
+        
+        
+         
     
     
     
@@ -76,14 +82,36 @@ public class Bookview extends ApplicationUI{
        int numberReceived = validInput.checkInt(1,200);
        System.out.println(view[6]);
        int year = validInput.checkInt(1000,3000);
-       System.out.println(view[7]);
-       int month = validInput.checkInt(1,12);
-       System.out.println(view[8]);
-       int dayOfMonth = validInput.checkInt(1,31);
-       
-        if(validInput.testDate(year, month, dayOfMonth))
-        {
+    
+       System.out.println("Is this book  a part of a series? y/n");
+       String choise = validInput.checkString();
+       if(choise.equals("y")){
+           
+           System.out.println("\nSeries in store: \n");
+           
+           for(String series :  register.getSeriesList() ){
+               System.out.println(series);
+           }
+           
+           System.out.println("please type in name of Series\n");
+           
+           String series = validInput.checkString();
+           
+           book = new BookSeries( 
+                     publisher
+                     ,title
+                     ,author
+                     ,genre
+                     ,series
+                     ,purchasePrice
+                     ,numberReceived
+                     ,year  );
         
+            System.out.print("\nBook succesfully added\n");
+           
+       }
+       
+        if(choise.equals("n")){
 
         
              book = new BookStandAlone( 
@@ -96,10 +124,10 @@ public class Bookview extends ApplicationUI{
                      ,year  );
                     
             
-            System.out.print("Book succesfully added");
-        
+            System.out.print("\nBook succesfully added\n");
+        }
     
-            }
+            
         
        
         return book;
@@ -164,6 +192,19 @@ public class Bookview extends ApplicationUI{
        
        
    }
-}
+    
+    
+    
+           
+           
+           
+       
+        
+        
+        
+    
+       
+
     
 
+}

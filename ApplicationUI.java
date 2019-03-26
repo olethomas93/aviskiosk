@@ -1,9 +1,12 @@
 package gruppeinnlevering;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.Iterator; 
+import java.util.Map;
 
 /**
  * Makes up the user interface (text based) of the application.
@@ -17,6 +20,8 @@ public class ApplicationUI
 {
    
     protected LiteratureRegister register;
+  
+    private HashMap<Literature,Integer> shoppingCart;
     
 
     // The menu tha will be displayed. Please edit/alter the menu
@@ -33,12 +38,12 @@ public class ApplicationUI
     
     private String[] subMenuItems =
     {
-      "1. Add newspaper",
+      "1. Add Periodical",
       "2. Add book"
     };
     private String[] subMenuItems2 =
     {
-      "1. Find Newspaper ",
+      "1. Find peridoical ",
       "2. Find Book"
       
     };
@@ -47,9 +52,13 @@ public class ApplicationUI
     {
       "1. List everything in shop",
       "2. Find literature by title",
+      "3. show shopping cart",
+      "4. checkout"
+           
       
     };
-
+    
+    
    
 
     /**
@@ -57,10 +66,13 @@ public class ApplicationUI
      */
     public ApplicationUI() 
     {
-     
+       
         System.out.println("\n**** Application v1.0 ****\n");
         register = new LiteratureRegister(); 
+       
+       shoppingCart = new HashMap<>();
         register.addDailyLiterature();
+      
 
     }
 
@@ -234,17 +246,33 @@ public class ApplicationUI
 
        
     
- private void shopForLiterature() {
+ protected void shopForLiterature() {
+     
+     
         
      int menuSelection = showMenu(subMenuItemShop);
      
-     Shop shop = new Shop(register);
+      
      
      if(menuSelection ==1){
         
-        shop.listAll();
+        listAllWithIndex();
+        AddToCart();
         
     }
+     if(menuSelection == 2){
+         
+         
+     }
+     if(menuSelection == 3){
+         
+         
+         ShowShoppingCart();
+         
+     }
+     if(menuSelection == 4){
+         checkOut();
+     }
  }
    
     
@@ -267,8 +295,8 @@ public class ApplicationUI
         details.append(literature.getPublisher());
         details.append("\n");
         
-        if(literature instanceof BookStandAlone ){
-            BookStandAlone b = (BookStandAlone)literature;
+        if(literature instanceof Book ){
+            Book b = (Book)literature;
             details.append("Author: ");
             details.append(b.getAuthor());
             details.append("\n");
@@ -278,7 +306,16 @@ public class ApplicationUI
             details.append("Genre: ");
             details.append(b.getGenre());
             details.append("\n");
+           
+            
         }
+        if(literature instanceof BookSeries){
+           BookSeries c = (BookSeries)literature;
+           System.out.println("Series: ");
+           details.append(c.getSeries());
+           details.append("\n");
+        }
+        
         
         details.append("Retail Price: ");
         details.append(literature.getRetailPrice());
@@ -306,7 +343,130 @@ public class ApplicationUI
     }
 
     
+    /**
+     * Lists all contents of literatureRegister with index number
+     */
+    
+    public void listAllWithIndex(){
+    
+     ArrayList<Literature> list = register.getList();
+     
+     for(int i = 0; i< list.size();i++ ){
+         
+         System.out.println("\nindex number: "+i+"\n");
+         
+         System.out.println(getDetails(list.get(i)));
+     }  
+     
+    
+         
+      
+}
+    
+    /**
+     * adds items to shopping cart
+     */
+    
+   public void AddToCart(){
+     ArrayList<Literature> list = register.getList();
+     ValidInput validInput = new ValidInput();
+     System.out.println("\nPlease enter the index number of what you want to add to shopping cart\n");
+      
+      int choise = validInput.checkInt(1, list.size());
+      if(list.get(choise).getNumberInStock() == 0){
+          
+          System.out.println("\nOUT OF STOCK\n");
+          AddToCart();
+      }
+      System.out.println("\nSure you want to add: \n");
+      System.out.println(getDetails(list.get(choise)));
+      System.out.println("\n");
+      System.out.println("Type 'y' to add if not type 'n'");
+      String option = validInput.checkString();
+      if(option.equals("y")){
+          System.out.println("\nPlease enter how many to add to cart:\n");
+         
+          int numberToAdd = validInput.checkInt(1, list.get(choise).getNumberInStock());
+          
+          
+         
+          
+          this.shoppingCart.put(list.get(choise),numberToAdd);
+          System.out.println("\nItem has been added to shoppingcart\n");
+          
+          shopForLiterature();
+          
+      }
+      if(option.equals("n")){
+          
+          shopForLiterature();
+          
+      }
+      
+      
+     }
+  
+/**
+ * prints out contents of shopping cart
+ */
    
+public void ShowShoppingCart(){
+    
+    itemsInCart();
+    
+    for(Map.Entry<Literature,Integer> entry : this.shoppingCart.entrySet() ){
+        
+        System.out.print(entry.getValue()+" "+"items of : \n");
+        System.out.println("\n");
+        System.out.println(getDetails(entry.getKey()));
+        
+    }
+    
+}
+
+
+/*
+takes user to checkout 
+*/
+
+public void checkOut(){
+    ValidInput validInput = new ValidInput();
+    System.out.println("Items in shopping cart:\n");
+    ShowShoppingCart();
+    System.out.println("\n");
+    System.out.println("Do you want to checkout? y/n");
+    String choise = validInput.checkString();
+    if(choise.equals("y")){
+        
+        for(Map.Entry<Literature,Integer> entry : this.shoppingCart.entrySet()){
+            
+            entry.getKey().SellLiterature(entry.getValue());
+            
+            
+            
+          
+        }
+        shoppingCart.clear();
+    }
+        
+        if(choise.equals("n")){
+            
+            shopForLiterature();
+        }
+          
+    
+    
+}
+
+
+/**
+ * prints out number of items in shopping cart
+ */
+
+    public void itemsInCart(){
+    
+    System.out.println(shoppingCart.size());
+}
 
     private void deleteLiterature() {
         
@@ -317,7 +477,7 @@ public class ApplicationUI
 
    
     
-    
+} 
     
     
     
@@ -333,6 +493,6 @@ public class ApplicationUI
     
     
     
-}
+
 
     
