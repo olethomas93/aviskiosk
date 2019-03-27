@@ -1,6 +1,5 @@
 package gruppeinnlevering;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.InputMismatchException;
@@ -67,7 +66,7 @@ public class ApplicationUI
     public ApplicationUI() 
     {
        
-        System.out.println("\n**** Application v1.0 ****\n");
+        
         register = new LiteratureRegister(); 
        
        shoppingCart = new HashMap<>();

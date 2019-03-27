@@ -171,7 +171,7 @@ public class PeriodicalLiteratureView extends ApplicationUI{
 
         if(!search.hasNext()){
             System.out.println("\nSorry Bro,couldn't find what you were looking for. Please try again\n");
-           
+           findPeriodicalLiteratureByName();
 
         }
 

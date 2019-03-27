@@ -18,6 +18,8 @@ public class Main
     public static void main(String[] args)
     {
         ApplicationUI appUI = new ApplicationUI();
+        
+        System.out.println("\n**** Application v1.0 ****\n");
         appUI.start();
     }
 }
