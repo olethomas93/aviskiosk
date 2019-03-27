@@ -19,6 +19,7 @@ public class ApplicationUI
 {
    
     protected LiteratureRegister register;
+    protected Validator validInput  ;
   
     private HashMap<Literature,Integer> shoppingCart;
     
@@ -68,6 +69,7 @@ public class ApplicationUI
        
         
         register = new LiteratureRegister(); 
+        validInput = new Validator();
        
        shoppingCart = new HashMap<>();
         register.addDailyLiterature();
@@ -195,7 +197,7 @@ public class ApplicationUI
 
     /**
      * Let the user set parameters, if all the typing from user are validated
-     * the variables are sendt too register. which creates and adds newspaper.
+     * the variables are sendt to register. which creates and adds literature.
      * 
      *
      */
@@ -207,9 +209,9 @@ public class ApplicationUI
          
          PeriodicalLiteratureView view = new PeriodicalLiteratureView(register);
          
-         Literature paper = view.createPeriodicalLiterature();
+         Literature  PeriodicalLiterature = view.createLiterature();
          
-         register.addLiterature(paper);
+         register.addLiterature( PeriodicalLiterature);
      }
      if(menuSelection == 2){
          
@@ -258,7 +260,7 @@ public class ApplicationUI
         ArrayList <Literature> list =  register.getList();
          
          listAllWithIndex(list);
-        AddToCart(list);
+         AddToCart(list);
         
     }
      if(menuSelection == 2){
@@ -372,7 +374,7 @@ public class ApplicationUI
     
    public void AddToCart(ArrayList<Literature> list){
              
-     Validator validInput = new Validator();
+    
      System.out.println("\nPlease enter the index number of what you want to add to shopping cart\n");
       
       int choise = validInput.checkInt(0, list.size());

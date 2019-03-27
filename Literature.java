@@ -1,6 +1,6 @@
 package gruppeinnlevering;
 
-import java.time.DateTimeException;
+
 import java.time.LocalDate;
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -13,7 +13,7 @@ import java.time.LocalDate;
  *
  * @author norby
  */
-public class Literature {
+public abstract class Literature {
     
     private String publisher;
     
@@ -31,7 +31,7 @@ public class Literature {
     
 
 
-public Literature(String publisher,long purchasePrice,int numberRecieved,int year)
+public  Literature(String publisher,long purchasePrice,int numberRecieved,int year)
 {
     setPublisher(publisher);
     setRetailPrice(purchasePrice);

@@ -13,7 +13,7 @@ import java.util.Iterator;
  */
 public class PeriodicalLiteratureView extends ApplicationUI{
     
-    private Validator validInput  ;
+    
     private LiteratureRegister register;
     
     private String[] view = 
@@ -45,12 +45,12 @@ public class PeriodicalLiteratureView extends ApplicationUI{
          super();
        register = myRegister;
       
-       validInput = new Validator();
+      
    }
     
     
     
-    public Literature createPeriodicalLiterature(){
+    public Literature createLiterature(){
        
        
        
@@ -90,7 +90,17 @@ public class PeriodicalLiteratureView extends ApplicationUI{
         }
     
     
-    Literature userInput(int selection){
+   
+    /**
+     * creates a new instance of periodical literature
+     * 
+     * 
+     * 
+     * @param selection
+     * @return Literature 
+     */
+    
+    private Literature userInput(int selection){
         
         String publisher = "no title added";
         Literature literature = null;
@@ -157,9 +167,11 @@ public class PeriodicalLiteratureView extends ApplicationUI{
     
     
     
+    /**
+     * prints out a list of hits of the given publisher name
+     */
     
-    
-    void findPeriodicalLiteratureByName()
+    void findPeriodicalLiteratureByPublisher()
     {
         
 
@@ -171,7 +183,7 @@ public class PeriodicalLiteratureView extends ApplicationUI{
 
         if(!search.hasNext()){
             System.out.println("\nSorry Bro,couldn't find what you were looking for. Please try again\n");
-           findPeriodicalLiteratureByName();
+           findPeriodicalLiteratureByPublisher();
 
         }
 
@@ -184,9 +196,18 @@ public class PeriodicalLiteratureView extends ApplicationUI{
         }
     }
     
-    void findNewspaperByDate(){
-        
-    }
+    
+    
+    
+    
+    
+    
+   
+    
+    
+    
+    
+    
     
     
     void getSearchOptions(){
@@ -195,7 +216,7 @@ public class PeriodicalLiteratureView extends ApplicationUI{
         
         if(menuSelection == 1){
             
-            findPeriodicalLiteratureByName();
+            findPeriodicalLiteratureByPublisher();
             
         }
         
