@@ -11,14 +11,14 @@ package gruppeinnlevering;
  */
 public class Comics extends PeriodicalLiterature {
     
-    String title;
+    private String title;
     
     
-    public Comics(String publisher,String title, int yearlyReleases,
+    public Comics(String name,String title, int yearlyReleases,
     long purchasePrice, int numberRecieved, int year, 
     int month, int dayOfMonth){
         
-        super(publisher,yearlyReleases,purchasePrice,numberRecieved,year,month,dayOfMonth);
+        super(name,yearlyReleases,purchasePrice,numberRecieved,year,month,dayOfMonth);
         setTitle(title);
     
     }
@@ -27,6 +27,10 @@ public class Comics extends PeriodicalLiterature {
         
         this.title = title;
         
+    }
+    
+    public String getTitle(){
+        return this.title;
     }
     
     

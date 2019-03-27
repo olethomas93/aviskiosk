@@ -5,20 +5,20 @@
  */
 package gruppeinnlevering;
 
-import java.util.Iterator;
+
 
 /**
  *
  * @author norby
  */
-public class PeriodicalLiteratureView extends ApplicationUI{
+public class PeriodicalLiteratureView extends View{
     
     
     private LiteratureRegister register;
     
     private String[] view = 
     {
-       "Please type in name of publisher",
+       "Please type in name ",
         "Please type in title",
         "Please type in yearly releases",
         "Please enter purchase price",
@@ -163,52 +163,7 @@ public class PeriodicalLiteratureView extends ApplicationUI{
     }
     
     
-    
-    
-    
-    
-    /**
-     * prints out a list of hits of the given publisher name
-     */
-    
-    void findPeriodicalLiteratureByPublisher()
-    {
-        
 
-        System.out.println("type in publisher name");
-        System.out.println("\n");
-        String searchString = validInput.stringScanner();
-       
-        Iterator<Literature> search = register.getIteratorPublisher(searchString);
-
-        if(!search.hasNext()){
-            System.out.println("\nSorry Bro,couldn't find what you were looking for. Please try again\n");
-           findPeriodicalLiteratureByPublisher();
-
-        }
-
-        while(search.hasNext())
-        {
-
-            System.out.println(getDetails(search.next())); 
-            System.out.println("\n");
-
-        }
-    }
-    
-    
-    
-    
-    
-    
-    
-   
-    
-    
-    
-    
-    
-    
     
     void getSearchOptions(){
         
@@ -216,13 +171,16 @@ public class PeriodicalLiteratureView extends ApplicationUI{
         
         if(menuSelection == 1){
             
-            findPeriodicalLiteratureByPublisher();
+            findPeriodicalLiteratureByName();
             
         }
         
         
         
     }
+    
+    
+    
        
        
    }

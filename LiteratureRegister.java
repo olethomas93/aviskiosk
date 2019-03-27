@@ -41,36 +41,7 @@ public class LiteratureRegister
     
     
     
-    /**
-     * Remove a paper from the collection
-     * @param title
-     */
-    public void removePaper(String title)
-    {
-        for (Literature literature : this.literatureCollection){
-        
-            if (literature instanceof Newspaper){
-                
-                Newspaper paper = (Newspaper)literature;
-                
-                if(paper.getPublisher().equals(title)){
-                   
-                    literatureCollection.remove(literature);
-                    
-                }
-                
-               
-            
-            
-                
-
-            
-        }  
-
-        
-    }
-    }
-    
+  
   
 
     /**
@@ -91,19 +62,22 @@ public class LiteratureRegister
      * 
      * @return iterator of search results
      */
-    public Iterator<Literature> getIteratorPublisher(String publisher){
+    public Iterator<Literature> getIteratorName(String name){
     
         ArrayList<Literature> searchResult = new ArrayList<>();
          
         
         for (Literature literature : this.literatureCollection){ 
             
+            if(literature instanceof PeriodicalLiterature){
+                PeriodicalLiterature p = (PeriodicalLiterature)literature;
             
         
-            if (literature.getPublisher().contains(publisher.toUpperCase())){
+            if (p.getName().contains(name.toUpperCase())){
             
                 searchResult.add(literature);
 
+            }
             }
         }  
         
@@ -149,13 +123,17 @@ public class LiteratureRegister
         
         for (Literature literature : this.literatureCollection) {
         
-            if(literature instanceof BookStandAlone){
-                BookStandAlone book = (BookStandAlone)literature;
+            if(literature instanceof Book || literature instanceof Comics ){
+                Book book = (Book)literature;
+                Comics comic = (Comics)literature;
                 
               
                 if(book.getTitle().contains(title.toUpperCase())){
                     
                      searchResult.add(literature);
+                }
+                if(comic.getTitle().contains(title.toUpperCase())){
+                    searchResult.add(literature);
                 }
                 
                

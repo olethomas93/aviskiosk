@@ -11,15 +11,16 @@ import java.util.Iterator;
  *
  * @author norby
  */
-public class Bookview extends ApplicationUI{
+public class Bookview extends View{
     
     private Validator validInput  ;
     private LiteratureRegister register;
     
+    
     private String[] view = 
     {
        "Please type in name of publisher",
-        "Plewase type in title",
+        "Please type in title",
         "Please type in author",
         "Please type in genre",
         "Please enter purchase price",
@@ -40,7 +41,7 @@ public class Bookview extends ApplicationUI{
     
     public Bookview(LiteratureRegister myRegister){
         super();
-        register = myRegister;
+       register = myRegister;
        validInput = new Validator();
    }
     
@@ -61,7 +62,7 @@ public class Bookview extends ApplicationUI{
      */
     
     
-    public Literature createBook(){
+    public Literature createLiterature(){
        
        
        String publisher = "no title added";
@@ -169,7 +170,7 @@ public class Bookview extends ApplicationUI{
      * User vcan find Book by searching for title
      */
     
-    void findBookByTitle()
+    void findByTitle()
     {
         
 
@@ -200,7 +201,7 @@ public class Bookview extends ApplicationUI{
         
         if(menuSelection == 1){
             
-            findBookByTitle();
+            findByTitle();
     }
         if(menuSelection == 2){
             findBookByAuthor();

@@ -15,7 +15,7 @@ import java.time.LocalDate;
  */
 public abstract class Literature {
     
-    private String publisher;
+   
     
     private LocalDate date;
    
@@ -31,23 +31,15 @@ public abstract class Literature {
     
 
 
-public  Literature(String publisher,long purchasePrice,int numberRecieved,int year)
+public  Literature(long purchasePrice,int numberRecieved,int year)
 {
-    setPublisher(publisher);
+    
     setRetailPrice(purchasePrice);
     setNumberInStock(numberRecieved);
     setYearIssued(year);
 
 }
-/**
-     * Returns a String with the titles name in uppercase
-     * @return this.title a String with the titles name
-     */
- public String getPublisher()
 
-    {
-        return this.publisher.toUpperCase();
-    }
  /**
      * Returns the titles price for the paper
      * @return the titles price for the paper
@@ -75,29 +67,7 @@ public  Literature(String publisher,long purchasePrice,int numberRecieved,int ye
  
   
     
-    /**
-     * set title variable and check if the string is empty
-     * @param publisher
-     */
- 
-    public void setPublisher(String publisher)
-    {
-        
-        if(publisher == null || publisher.isEmpty())
-        {
-            
-
-            this.publisher ="INVALID TITLE";
-            System.out.println("invalid title name");
-
-           
-
-        }
-        else
-        {
-            this.publisher = publisher;
-        }
-    }
+    
     
     
     

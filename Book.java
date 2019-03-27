@@ -14,7 +14,7 @@ public class Book extends Literature{
      private String genre;
     private String author;
     private String title;
-    
+    private String publisher;
     
     
     public Book(String publisher
@@ -27,11 +27,11 @@ public class Book extends Literature{
             
     
         
-    super( publisher, purchasePrice, numberRecieved, year);    
+    super( purchasePrice, numberRecieved, year);    
     setTitle(title);        
     setGenre(genre);
     setAuthor(author);
-        
+    setPublisher(publisher);
         
     }
     
@@ -56,8 +56,29 @@ public class Book extends Literature{
         
     }
 
-    
+    /**
+     * set title variable and check if the string is empty
+     * @param publisher
+     */
+ 
+    public void setPublisher(String publisher)
+    {
+        
+        if(publisher == null || publisher.isEmpty())
+        {
+            
 
+            this.publisher ="INVALID TITLE";
+            System.out.println("invalid title name");
+
+           
+
+        }
+        else
+        {
+            this.publisher = publisher;
+        }
+    }
     
     
     public String getAuthor() {
@@ -72,7 +93,15 @@ public class Book extends Literature{
         return this.title;
     }
     
-    
+    /**
+     * Returns a String with the titles publisher in uppercase
+     * @return this.title a String with the titles publisher
+     */
+ public String getPublisher()
+
+    {
+        return this.publisher.toUpperCase();
+    }
 
    
    

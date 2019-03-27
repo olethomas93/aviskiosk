@@ -20,6 +20,7 @@ public class ApplicationUI
    
     protected LiteratureRegister register;
     protected Validator validInput  ;
+    
   
     private HashMap<Literature,Integer> shoppingCart;
     
@@ -70,6 +71,7 @@ public class ApplicationUI
         
         register = new LiteratureRegister(); 
         validInput = new Validator();
+        
        
        shoppingCart = new HashMap<>();
         register.addDailyLiterature();
@@ -207,7 +209,7 @@ public class ApplicationUI
         
      if(menuSelection== 1){
          
-         PeriodicalLiteratureView view = new PeriodicalLiteratureView(register);
+         View view = new PeriodicalLiteratureView(register);
          
          Literature  PeriodicalLiterature = view.createLiterature();
          
@@ -215,8 +217,8 @@ public class ApplicationUI
      }
      if(menuSelection == 2){
          
-         Bookview view = new Bookview(register);
-         Literature book = view.createBook();
+         View view = new Bookview(register);
+         Literature book = view.createLiterature();
          register.addLiterature(book);
      }
      
@@ -292,13 +294,15 @@ public class ApplicationUI
     protected StringBuilder getDetails(Literature literature){
     
         StringBuilder details = new StringBuilder();
-        
         details.append("_________________________");
+        if(literature instanceof PeriodicalLiterature){
+            PeriodicalLiterature p = (PeriodicalLiterature)literature;
+       
         details.append("\n");
-        details.append("Publisher: ");
-        details.append(literature.getPublisher());
+        details.append("Name: ");
+        details.append(p.getName());
         details.append("\n");
-        
+        }
         if(literature instanceof Book ){
             Book b = (Book)literature;
             details.append("Author: ");
@@ -310,12 +314,19 @@ public class ApplicationUI
             details.append("Genre: ");
             details.append(b.getGenre());
             details.append("\n");
+          
            
+          }
+        if(literature instanceof Comics){
+              Comics c = (Comics)literature;
+              details.append("Title: ");
+              details.append(c.getTitle());
+              details.append("\n");
             
         }
         if(literature instanceof BookSeries){
            BookSeries c = (BookSeries)literature;
-           System.out.println("Series: ");
+           details.append("Series: ");
            details.append(c.getSeries());
            details.append("\n");
         }

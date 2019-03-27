@@ -26,8 +26,8 @@ public class Newspaper extends PeriodicalLiterature
      * The date is the only parameter which the values typed in the
      * parameter are checked. purchasePrice are an absolute value.
      * 
-     * @param publisher represents the publisher of the paper
-     * @param yearlyReleases says how many releases per
+     * @param name
+     * @param yearlyReleases  how many releases per year
      * @param purchasePrice represents the price set by the title in NOK
      * @param numberRecieved
      * @param year
@@ -36,12 +36,12 @@ public class Newspaper extends PeriodicalLiterature
      
      
      */
-    public Newspaper(String publisher, int yearlyReleases,
+    public Newspaper(String name, int yearlyReleases,
     long purchasePrice, int numberRecieved, int year, 
     int month, int dayOfMonth)
     {
         
-        super(publisher,yearlyReleases,purchasePrice,numberRecieved,year,month,dayOfMonth);
+        super(name,yearlyReleases,purchasePrice,numberRecieved,year,month,dayOfMonth);
         
        
         
