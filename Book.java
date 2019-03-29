@@ -27,7 +27,7 @@ public class Book extends Literature{
             
     
         
-    super( purchasePrice, numberRecieved, year);    
+    super(publisher, purchasePrice, numberRecieved, year);    
     setTitle(title);        
     setGenre(genre);
     setAuthor(author);

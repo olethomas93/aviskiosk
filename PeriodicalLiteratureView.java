@@ -14,11 +14,11 @@ package gruppeinnlevering;
 public class PeriodicalLiteratureView extends View{
     
     
-    private LiteratureRegister register;
+   
     
     private String[] view = 
     {
-       "Please type in name ",
+       "Please type in name of publisher ",
         "Please type in title",
         "Please type in yearly releases",
         "Please enter purchase price",
@@ -165,7 +165,8 @@ public class PeriodicalLiteratureView extends View{
     
 
     
-    void getSearchOptions(){
+    @Override
+    public void getSearchOptions(){
         
         int menuSelection =  showMenu(searchOptions);
         

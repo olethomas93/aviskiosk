@@ -21,6 +21,7 @@ public abstract class View extends ApplicationUI {
    
  
       public abstract Literature createLiterature();
+      public abstract void getSearchOptions();
        
        
       
@@ -35,7 +36,7 @@ public abstract class View extends ApplicationUI {
     {
         
 
-        System.out.println("type in publisher name");
+        System.out.println("type in title name");
         System.out.println("\n");
         String searchString = validInput.stringScanner();
        

@@ -18,20 +18,20 @@ public class PeriodicalLiterature extends Literature {
     
     private int yearlyReleases;
     private LocalDate date;
-    private String name;
     
     
     
     
-    public PeriodicalLiterature(String name, int yearlyReleases,
+    
+    public PeriodicalLiterature(String publisher, int yearlyReleases,
     long purchasePrice, int numberRecieved, int year, 
     int month, int dayOfMonth){
         
-        super(purchasePrice,numberRecieved,year);
+        super(publisher,purchasePrice,numberRecieved,year);
         
         setYearlyReleases(yearlyReleases);
         setDateIssued(year, month, dayOfMonth);
-        setName(name);
+        
     }
 
     
@@ -73,9 +73,7 @@ public class PeriodicalLiterature extends Literature {
         return currentDate;
     }
     
-    public String getName(){
-        return this.name;
-    }
+    
     
     
 
@@ -110,9 +108,6 @@ public boolean setDateIssued(int year, int month, int dayOfMonth)
 
     }
 
-    private void setName(String name) {
-        this.name = name;
-    }
     
     
     

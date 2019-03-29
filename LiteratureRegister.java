@@ -69,17 +69,16 @@ public class LiteratureRegister
         
         for (Literature literature : this.literatureCollection){ 
             
-            if(literature instanceof PeriodicalLiterature){
-                PeriodicalLiterature p = (PeriodicalLiterature)literature;
             
         
-            if (p.getName().contains(name.toUpperCase())){
+        
+            if (literature.getPublisher().contains(name.toUpperCase())){
             
                 searchResult.add(literature);
 
             }
             }
-        }  
+         
         
         
         return searchResult.iterator();

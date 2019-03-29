@@ -26,18 +26,19 @@ public abstract class Literature {
     private int numberInStock;
     
     private int year;
+    private String publisher;
     
     
     
 
 
-public  Literature(long purchasePrice,int numberRecieved,int year)
+public  Literature(String publisher,long purchasePrice,int numberRecieved,int year)
 {
     
     setRetailPrice(purchasePrice);
     setNumberInStock(numberRecieved);
     setYearIssued(year);
-
+     setPublisher(publisher);
 }
 
  /**
@@ -121,6 +122,14 @@ public  Literature(long purchasePrice,int numberRecieved,int year)
     
     public int getYearIssued(){
         return this.year;
+    }
+    
+    private void setPublisher(String publisher) {
+        this.publisher = publisher.toUpperCase();
+    }
+    
+    public String getPublisher(){
+        return this.publisher.toUpperCase();
     }
     
 }

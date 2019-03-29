@@ -194,7 +194,8 @@ public class Bookview extends View{
     }
 
     
-    void getSearchOptions() {
+    @Override
+    public void getSearchOptions() {
         
         
         int menuSelection =  showMenu(searchOptions);

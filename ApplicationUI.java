@@ -45,7 +45,9 @@ public class ApplicationUI
     private String[] subMenuItems2 =
     {
       "1. Find peridoical ",
-      "2. Find Book"
+      "2. Find Book",
+      "3. Search for publisher "
+            
       
     };
     
@@ -236,12 +238,15 @@ public class ApplicationUI
      int menuSelection = showMenu(subMenuItems2);
      
      if(menuSelection ==1){
-         PeriodicalLiteratureView view = new PeriodicalLiteratureView(register);
+         View view = new PeriodicalLiteratureView(register);
          view.getSearchOptions();
        }
      if(menuSelection == 2){
-         Bookview view = new Bookview(register);
+         View view = new Bookview(register);
          view.getSearchOptions();
+     }
+     if(menuSelection == 3){
+         searchForPublisher();
      }
      
  }
@@ -295,14 +300,14 @@ public class ApplicationUI
     
         StringBuilder details = new StringBuilder();
         details.append("_________________________");
-        if(literature instanceof PeriodicalLiterature){
-            PeriodicalLiterature p = (PeriodicalLiterature)literature;
-       
         details.append("\n");
-        details.append("Name: ");
-        details.append(p.getName());
+        
+        
         details.append("\n");
-        }
+        details.append("Publisher: ");
+        details.append(literature.getPublisher());
+        details.append("\n");
+        
         if(literature instanceof Book ){
             Book b = (Book)literature;
             details.append("Author: ");
@@ -446,7 +451,7 @@ public void ShowShoppingCart(){
 */
 
 public void checkOut(){
-    Validator validInput = new Validator();
+    
     System.out.println("Items in shopping cart:\n");
     ShowShoppingCart();
     System.out.println("\n");
@@ -495,7 +500,7 @@ public void checkOut(){
     
     private void findLiteratureByTitle() {
         
-        Validator validInput = new Validator();
+        
         
         System.out.println("Please enter name of title \n");
         String title = validInput.checkString();
@@ -508,6 +513,26 @@ public void checkOut(){
         
        }
 
+    private void searchForPublisher() {
+        
+        
+        System.out.println("Please enter name of publisher \n");
+        String title = validInput.checkString();
+        
+        Iterator<Literature> it = register.getIteratorName(title);
+        
+        if(!it.hasNext())
+        {
+            System.out.println("no search results\n");
+            
+        }
+
+        while(it.hasNext())
+        {
+            System.out.println(getDetails(it.next()));
+        }
+    }
+
    
     
 } 
@@ -515,13 +540,7 @@ public void checkOut(){
     
     
     
-    
-    /**
-     * Search the collection of Newspapers by name.
-     * 
-     * Prints out details of newspaper in the search result 
-
-     */
+   
 
     
     
