@@ -17,9 +17,15 @@ public class Main
      */
     public static void main(String[] args)
     {
+     try
+     {
         ApplicationUI appUI = new ApplicationUI();
         
         System.out.println("\n**** Application v1.0 ****\n");
         appUI.start();
+     }
+     catch (NullPointerException e){
+         System.out.println("Sorry error error occurred, Please call help desk +4792691204 ");
+     }
     }
 }
