@@ -72,7 +72,8 @@ public class PeriodicalLiteratureView extends View {
      */
     private Literature userInput(int selection) {
 
-        String publisher = "no title added";
+        String publisher = "no publisher added";
+        String title = "no title added";
         Literature literature = null;
 
         switch (selection) {
@@ -80,6 +81,8 @@ public class PeriodicalLiteratureView extends View {
             case 1:
                 System.out.println(view[0]);
                 publisher = validInput.checkString();
+                System.out.println(view[1]);
+                title = validInput.checkString();
                 System.out.println(view[2]);
                 int yearlyReleases = validInput.checkInt(1, 365);
                 System.out.println(view[3]);
@@ -97,7 +100,7 @@ public class PeriodicalLiteratureView extends View {
                     System.out.println("Date Error. instance was not added\n");
                 }
 
-                literature = new Newspaper(publisher, yearlyReleases, purchasePrice, numberReceived, year, month, dayOfMonth);
+                literature = new Newspaper(title,publisher, yearlyReleases, purchasePrice, numberReceived, year, month, dayOfMonth);
 
                 break;
 
@@ -105,7 +108,7 @@ public class PeriodicalLiteratureView extends View {
                 System.out.println(view[0]);
                 publisher = validInput.checkString();
                 System.out.println(view[1]);
-                String title = validInput.checkString();
+                title = validInput.checkString();
                 System.out.println(view[2]);
                 yearlyReleases = validInput.checkInt(1, 365);
                 System.out.println(view[3]);

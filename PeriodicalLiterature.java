@@ -16,8 +16,9 @@ public class PeriodicalLiterature extends Literature {
 
     private int yearlyReleases;
     private LocalDate date;
+    private String title;
 
-    public PeriodicalLiterature(String publisher, int yearlyReleases,
+    public PeriodicalLiterature(String title,String publisher, int yearlyReleases,
             long purchasePrice, int numberRecieved, int year,
             int month, int dayOfMonth) {
 
@@ -40,6 +41,34 @@ public class PeriodicalLiterature extends Literature {
         }
 
         this.yearlyReleases = yearlyReleases;
+    }
+    
+    /**
+     * set title of comic
+     *
+     * @param title
+     */
+    private void setTitle(String title) {
+        if (title == null) {
+            title = "";
+        }
+
+        title.trim();
+
+        if (title.isEmpty()) {
+            throw new IllegalArgumentException("title can't be null");
+        }
+        this.title = title;
+
+    }
+    
+     /**
+     *
+     * @return title
+     */
+
+    public String getTitle() {
+        return this.title;
     }
 
     /**

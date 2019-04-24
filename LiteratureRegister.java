@@ -3,6 +3,7 @@ package gruppeinnlevering;
 import gruppeinnlevering.Literature;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 /**
  * Class name: LiteratureRegister Represent a register, holdning newspapers
@@ -22,6 +23,7 @@ public class LiteratureRegister {
     public LiteratureRegister() {
         this.literatureCollection = new ArrayList<>();
         balance = 0;
+        
 
     }
 
@@ -158,6 +160,12 @@ public class LiteratureRegister {
         }
         return series.iterator();
     }
+    
+    public List<Literature> getLiteratureList(){
+        
+        return this.literatureCollection;
+        
+    }
 
     /**
      * Returns the Iterator of search-results in newspaper-collection
@@ -192,16 +200,16 @@ public class LiteratureRegister {
      */
     public void addDailyLiterature() {
 
-        addNewLiterature(new Newspaper("Stjørdalens blad", 250, 20, 15, 2, 2, 22));
-        addNewLiterature(new Newspaper("Folkebladet", 220, 20, 15, 2019, 2, 22));
-        addNewLiterature(new Newspaper("Inerøyingen", 52, 30, 5, 2019, 2, 22));
-        addNewLiterature(new Newspaper("Nordlys", 364, 20, 15, 2019, 2, 22));
+        addNewLiterature(new Newspaper("title","Stjørdalens blad", 250, 20, 15, 2, 2, 22));
+        addNewLiterature(new Newspaper("title","Folkebladet", 220, 20, 15, 2019, 2, 22));
+        addNewLiterature(new Newspaper("title","Inerøyingen", 52, 30, 5, 2019, 2, 22));
+        addNewLiterature(new Newspaper("title","Nordlys", 364, 20, 15, 2019, 2, 22));
         addNewLiterature(new BookStandAlone("FORLAG", "SNOMANNEN", "JO NESBO", "KRIM", 2, 2, 2019));
         addNewLiterature(new BookStandAlone("FORLAG", "PAN", "KNUT HAMSUND", "KRIM", 12, 2, 2019));
         addNewLiterature(new BookStandAlone("FORLAG", "Davinci Code", "DARREN BROWN", "Crime", 12, 2, 2019));
         addNewLiterature(new BookStandAlone("FORLAG", "biblen", "JESUS", "fantasy", 12, 2, 1000));
         addNewLiterature(new BookStandAlone("FORLAG", "Hodejegerne", "JO NESBO", "KRIM", 12, 2, 2019));
-        addNewLiterature(new Newspaper("publisher", 2, 10, 14, 1, 1, 1));
+        addNewLiterature(new Newspaper("title","publisher", 2, 10, 14, 1, 1, 1));
     }
 
     public float getBalance() {

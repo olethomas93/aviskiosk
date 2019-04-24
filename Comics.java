@@ -11,43 +11,19 @@ package gruppeinnlevering;
  */
 public class Comics extends PeriodicalLiterature {
 
-    private String title;
+    
 
-    public Comics(String name, String title, int yearlyReleases,
+    public Comics(String title, String publisher, int yearlyReleases,
             long purchasePrice, int numberRecieved, int year,
             int month, int dayOfMonth) {
 
-        super(name, yearlyReleases, purchasePrice, numberRecieved, year, month, dayOfMonth);
-        setTitle(title);
+        super(title,publisher, yearlyReleases, purchasePrice, numberRecieved, year, month, dayOfMonth);
+        
 
     }
 
-    /**
-     * set title of comic
-     *
-     * @param title
-     */
-    private void setTitle(String title) {
-        if (title == null) {
-            title = "";
-        }
+    
 
-        title.trim();
-
-        if (title.isEmpty()) {
-            throw new IllegalArgumentException("title can't be null");
-        }
-        this.title = title;
-
-    }
-
-    /**
-     *
-     * @return title
-     */
-
-    public String getTitle() {
-        return this.title;
-    }
+   
 
 }

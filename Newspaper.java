@@ -36,12 +36,12 @@ public class Newspaper extends PeriodicalLiterature
      
      
      */
-    public Newspaper(String publisher, int yearlyReleases,
+    public Newspaper(String title,String publisher, int yearlyReleases,
     long purchasePrice, int numberRecieved, int year, 
     int month, int dayOfMonth)
     {
         
-        super(publisher,yearlyReleases,purchasePrice,numberRecieved,year,month,dayOfMonth);
+        super(title, publisher,yearlyReleases,purchasePrice,numberRecieved,year,month,dayOfMonth);
         
        
         
