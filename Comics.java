@@ -10,6 +10,7 @@ package gruppeinnlevering;
  * @author norby
  */
 public class Comics extends PeriodicalLiterature {
+<<<<<<< HEAD
 
     
 
@@ -26,4 +27,33 @@ public class Comics extends PeriodicalLiterature {
 
    
 
+=======
+    
+    private String title;
+    
+    
+    public Comics(String name,String title, int yearlyReleases,
+    long purchasePrice, int numberRecieved, int year, 
+    int month, int dayOfMonth){
+        
+        super(name,yearlyReleases,purchasePrice,numberRecieved,year,month,dayOfMonth);
+        setTitle(title);
+    
+    }
+
+    private void setTitle(String title) {
+        
+        this.title = title;
+        
+    }
+    
+    public String getTitle(){
+        return this.title;
+    }
+    
+    
+    
+    
+    
+>>>>>>> parent of 2955594... hehie
 }

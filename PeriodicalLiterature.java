@@ -13,9 +13,12 @@ import java.time.LocalDate;
  * @author norby
  */
 public class PeriodicalLiterature extends Literature {
-
+    
+    
+    
     private int yearlyReleases;
     private LocalDate date;
+<<<<<<< HEAD
     private String title;
 
     public PeriodicalLiterature(String title,String publisher, int yearlyReleases,
@@ -24,25 +27,32 @@ public class PeriodicalLiterature extends Literature {
 
         super(publisher, purchasePrice, numberRecieved, year);
 
+=======
+    
+    
+    
+    
+    
+    public PeriodicalLiterature(String publisher, int yearlyReleases,
+    long purchasePrice, int numberRecieved, int year, 
+    int month, int dayOfMonth){
+        
+        super(publisher,purchasePrice,numberRecieved,year);
+        
+>>>>>>> parent of 2955594... hehie
         setYearlyReleases(yearlyReleases);
         setDateIssued(year, month, dayOfMonth);
-
+        
     }
 
-    /**
-     * set yearly releases
-     *
-     * @param yearlyReleases
-     */
-    public void setYearlyReleases(int yearlyReleases) {
-        if (yearlyReleases <= 0) {
-            yearlyReleases = 0;
-            throw new IllegalArgumentException("yearly releases can't be negative or zero");
-        }
-
+    
+    
+     public void setYearlyReleases(int yearlyReleases)
+    {
         this.yearlyReleases = yearlyReleases;
     }
     
+<<<<<<< HEAD
     /**
      * set title of comic
      *
@@ -77,54 +87,77 @@ public class PeriodicalLiterature extends Literature {
      */
     public int getYearlyReleases() {
 
+=======
+    
+    
+    public int getYearlyReleases(){
+        
+>>>>>>> parent of 2955594... hehie
         return this.yearlyReleases;
     }
-
+            
+    
     /**
      * Returns the date the newspaper was issued
-     *
      * @return the date
      */
-    public LocalDate getDateIssued() {
+    public LocalDate getDateIssued()
+    {
         return this.date;
     }
 
+   
+    
+
     /**
      * Returns date-object in String format.
-     *
      * @return currentDate the date in String format
      */
-    public String getDate() {
+
+    public String getDate()
+    {
         String currentDate = this.date.toString();
 
         return currentDate;
     }
+    
+    
+    
+    
 
-    /**
-     * set date Issued
-     *
-     * @param year
-     * @param month
-     * @param dayOfMonth
-     * @return
-     */
-    public void setDateIssued(int year, int month, int dayOfMonth) {
+public boolean setDateIssued(int year, int month, int dayOfMonth)
+    {
 
-        if (year <= 0) {
+      try
+        {
+          this.date = LocalDate.of(year, month, dayOfMonth);
+        } 
+        catch (DateTimeException e ) 
+        {
 
-            throw new IllegalArgumentException("year can't be negative or zero");
-        }
-        if (month <= 0 || month > 12) {
+           System.out.println("Exception thrown  :" + e); 
+        }  
 
-            throw new IllegalArgumentException("month can't be negative or zero");
-        }
-        if (dayOfMonth <= 0) {
+           
 
-            throw new IllegalArgumentException(" Day of month can't be negative or zero");
-        }
+      boolean valid = true; 
+        try{
+          this.date = LocalDate.of(year, month, dayOfMonth);
+        } catch (DateTimeException e ) {
+           valid = false;
+           System.out.println("Exception thrown  :" + e); 
+        }  
 
-        this.date = LocalDate.of(year, month, dayOfMonth);
+            
+
+           return valid;
+
+     
 
     }
 
+    
+    
+    
+    
 }

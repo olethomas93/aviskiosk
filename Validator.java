@@ -14,103 +14,135 @@ import java.util.Scanner;
  * @author norby
  */
 public class Validator {
+    
+   
+    
+    
+    
+    
+    
+    public Validator(){
 
-    public Validator() {
+}
 
-    }
-
+   
+    
+    
     //            }
-    /**
-     * creates a new Scanner reades next input as String
-     *
+    
+    
+    
+    
+    
+    
+
+/**
+     * creates a new Scanner
+     * reades next input as String
+     * 
      * @return input String typed by user
      */
-    public String stringScanner() {
 
+    public String stringScanner(){
+    
         Scanner reader = new Scanner(System.in);
-        String input = reader.nextLine();
+        String input  = reader.nextLine();
 
         return input;
     }
 
     /**
-     * creates a new scanner Reades next input as int
-     *
+     * creates a new scanner
+     * Reades next input as int
+     * 
      * @return int input returns the number written by user.
      */
-    public int intScanner() {
 
+    public int intScanner(){
+    
         Scanner reader = new Scanner(System.in);
         int input = reader.nextInt();
 
         return input;
     }
 
-    /**
+    
+        
+        
+
+     
+    /** 
      * Check if String is not null or empty
-     *
+     * 
      * @return booelan true/false
      */
-    public String checkString() {
 
+    public String checkString(){
+    
         String stringToCheck = "error";
-
+        
         boolean stringValid = false;
+        
+        while(!stringValid){
+           stringToCheck = stringScanner();  
 
-        while (!stringValid) {
-            stringToCheck = stringScanner();
-
-            if (stringToCheck == null || stringToCheck.isEmpty()) {
-                System.out.println("String is empty, PLease try again");
-            } else {
-                stringValid = true;
-            }
+        if(stringToCheck == null || stringToCheck.isEmpty())
+        {
+            System.out.println("String is empty, PLease try again");
         }
-
+        else{
+            stringValid = true;
+        }
+        }
+        
+        
         return stringToCheck;
     }
 
     /**
-     *
+
      * Check if value is inside av given range
-     *
+     * 
      * @param value
-     *
+     * 
      * @param min
      * @param max
      * @return boolean true/false
      */
-    public int checkInt(int min, int max) {
 
+    public int checkInt(int min, int max){
+        
         int valueToCheck = 0;
-
+        
         boolean check = false;
-        while (!check) {
-            valueToCheck = intScanner();
-
-            if (valueToCheck >= min && valueToCheck <= max) {
-                check = true;
-            } else {
-                System.out.println("Invalid Input" + "\nMin: " + " " + min + "\nMax: " + " " + max);
-            }
+        while(!check){
+         valueToCheck = intScanner();
+        
+        if(valueToCheck>=min && valueToCheck<=max)
+        {
+            check = true;
+        }
+        else{
+            System.out.println("Invalid Input"+"Min: "+" "+ min+ "\nMax: "+" "+ max);
+        }
         }
 
-        return valueToCheck;
+        return  valueToCheck;
     }
 
-    public boolean testDate(int year, int month, int dayOfMonth) {
-
-        boolean valid = true;
-        try {
-            LocalDate date = LocalDate.of(year, month, dayOfMonth);
-        } catch (DateTimeException e) {
-            valid = false;
-            System.out.println("Exception thrown  :" + e);
-        
-        
-    }
-       return valid; 
-    }
     
+public boolean testDate(int year, int month, int dayOfMonth){
+    
+        boolean valid = true; 
+        try{
+            LocalDate date = LocalDate.of(year, month, dayOfMonth);
+        } catch (DateTimeException e ) {
+            valid = false;
+            System.out.println("Exception thrown  :" + e); 
+        }
+        return valid;
+    }
 
+    
 }
+

@@ -12,33 +12,49 @@ import java.util.Iterator;
  * @author norby
  */
 public abstract class View extends ApplicationUI {
-
-    public abstract Literature createLiterature();
-
-    public abstract void getSearchOptions();
-
-    /**
+    
+   
+    
+ 
+  
+   
+   
+ 
+      public abstract Literature createLiterature();
+      public abstract void getSearchOptions();
+       
+       
+      
+      
+      
+      
+      /**
      * prints out a list of hits of the given publisher name
      */
-    void findPeriodicalLiteratureByPublisher() {
+    
+    void findPeriodicalLiteratureByName()
+    {
+        
 
-        System.out.println("type in publisher name");
+        System.out.println("type in title name");
         System.out.println("\n");
         String searchString = validInput.stringScanner();
+       
+        Iterator<Literature> search = register.getIteratorName(searchString);
 
-        Iterator<Literature> search = register.getIteratorPublisher(searchString);
-
-        if (!search.hasNext()) {
+        if(!search.hasNext()){
             System.out.println("\nSorry Bro,couldn't find what you were looking for. Please try again\n");
-            findPeriodicalLiteratureByPublisher();
+           findPeriodicalLiteratureByName();
 
         }
 
-        while (search.hasNext()) {
+        while(search.hasNext())
+        {
 
-            System.out.println(getDetails(search.next()));
+            System.out.println(getDetails(search.next())); 
             System.out.println("\n");
 
         }
     }
-}
+  } 
+
